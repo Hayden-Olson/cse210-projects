@@ -13,7 +13,8 @@ class Program
             int guess = -1;
             int attempt = 0;
             Console.WriteLine("What is the magic number?");
-            while (guess != number);
+            while (guess != number)
+            {
                 attempt += 1;
                 Console.Write("What is your guess? ");
                 guess = int.Parse(Console.ReadLine());
@@ -30,6 +31,7 @@ class Program
                 {
                     Console.WriteLine("You guessed it!");
                 }
+            }
             if (attempt > 1)
             {
                 Console.WriteLine($"It took you {attempt} tries!");
