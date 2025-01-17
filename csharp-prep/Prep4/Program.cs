@@ -27,15 +27,15 @@ class Program
             sum += number;
         }
 
-        Console.WriteLine(numbers.Count);
-        int amount = int.Parse(Console.ReadLine());
+        int amount = numbers.Count;
 
         float average = 0;
         foreach (int number in numbers)
         {
             average += number;
-            average /= amount;
         }
+        average /= amount;
+        
         int max = numbers[0];
         foreach (int number in numbers)
         {
@@ -52,6 +52,7 @@ class Program
                 min = number;
             }
         }
+        numbers.Sort();
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
         Console.WriteLine($"The largest number is: {max}");
