@@ -9,7 +9,7 @@ class Program
         do
         {
             Random randomGenerator = new Random();
-            int number = randomGenerator.Next(1, 11);
+            int number = randomGenerator.Next(1, 101);
             int guess = -1;
             int attempt = 0;
             Console.WriteLine("What is the magic number?");
