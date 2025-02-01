@@ -16,14 +16,12 @@ public class Entry
     }
     public void Display()
     {
-// todo
+        Console.WriteLine();
+        Console.WriteLine($"{_date}\n{_question}\n{_response}");
+        Console.WriteLine();
     }
-    public void GetCsvVersion()
+    public string GetCsvVersion()
     {
-// todo
-    }
-    public void Edit()
-    {
-// todo
+        return $"{_date}~{_question}~{_response}";
     }
 }

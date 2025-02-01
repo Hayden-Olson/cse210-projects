@@ -36,15 +36,15 @@ class Program
             }
             else if (userChoice == "2")
             {
-
+                journal.Display();
             }
             else if (userChoice == "3")
             {
-
+                journal.SaveToFile();
             }
             else if (userChoice == "4")
             {
-
+                journal.LoadFromFile();
             }
             else if (userChoice != "5")
             {
