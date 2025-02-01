@@ -10,7 +10,7 @@ public class PromptGenerator
         _prompts.Add("What was the strongest emotion I felt today?");
         _prompts.Add("If I had one thing I could do over today, what would it be?");
         _prompts.Add("Consider and reflect on what might be your “favorite failure.”");
-        _prompts.Add("Are you taking enough risks in your life? Would you like to change your relationship to risk? If so, how?");
+        _prompts.Add("Who is somebody that you miss? Why?");
         _prompts.Add("What do you need to give yourself more credit for?");
         _prompts.Add("What biases do you need to work on?");
         _prompts.Add("Who is the most difficult person in your life and why?");

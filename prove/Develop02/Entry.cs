@@ -9,6 +9,7 @@ public class Entry
     {
         _question = PromptGenerator.GetPrompt();
         Console.WriteLine(_question);
+        Console.Write("> ");
 
         _response = Console.ReadLine();
 
@@ -17,7 +18,7 @@ public class Entry
     public void Display()
     {
         Console.WriteLine();
-        Console.WriteLine($"{_date}\n{_question}\n{_response}");
+        Console.WriteLine($"Date: {_date} - Prompt: {_question}\n{_response}");
         Console.WriteLine();
     }
     public string GetCsvVersion()
