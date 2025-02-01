@@ -15,12 +15,14 @@ public class Entry
 
         _date = DateTime.Now.ToShortDateString();
     }
+
     public void Display()
     {
         Console.WriteLine();
         Console.WriteLine($"Date: {_date} - Prompt: {_question}\n{_response}");
         Console.WriteLine();
     }
+    
     public string GetCsvVersion()
     {
         return $"{_date}~{_question}~{_response}";

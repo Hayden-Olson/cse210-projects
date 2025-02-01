@@ -15,6 +15,7 @@ public class PromptGenerator
         _prompts.Add("What biases do you need to work on?");
         _prompts.Add("Who is the most difficult person in your life and why?");
     }
+    
     public static string GetPrompt()
     {
         Random rand = new Random();

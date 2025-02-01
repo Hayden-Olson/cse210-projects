@@ -7,13 +7,15 @@ public class Journal
     {
         _entries.Add(entry);
     }
+
     public void RemoveEntry()
     {
-        Console.Write("Which entry slot do you wish to remove? ");
+        Console.Write("Which entry slot do you wish to remove? (Put index number.) ");
         string eliminate = Console.ReadLine();
         
         _entries.RemoveAt(int.Parse(eliminate));
     }
+
     public void SaveToFile()
     {
         Console.Write("What is the file name? ");
@@ -27,6 +29,7 @@ public class Journal
             }
         }
     }
+
     public void LoadFromFile()
     {
         Console.Write("Which file name? ");
@@ -51,6 +54,7 @@ public class Journal
             _entries.Add(entry);
         }
     }
+
     public void Display()
     {
         foreach (Entry entry in _entries)

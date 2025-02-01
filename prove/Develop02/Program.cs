@@ -9,7 +9,8 @@ class Program
         Console.WriteLine(" 2. Display journal.");
         Console.WriteLine(" 3. Save file.");
         Console.WriteLine(" 4. Load file.");
-        Console.WriteLine(" 5. Quit.");
+        Console.WriteLine(" 5. Delete entry.");
+        Console.WriteLine(" 6. Quit.");
         Console.WriteLine();
     }
     static void Main(string[] args)
@@ -28,33 +29,43 @@ class Program
             if (userChoice == "1")
             {
                 Entry newEntry = new Entry();
+
                 newEntry.GetFromUser();
 
                 journal.AddEntry(newEntry);
 
                 Console.WriteLine();
             }
+
             else if (userChoice == "2")
             {
                 journal.Display();
             }
+
             else if (userChoice == "3")
             {
                 journal.SaveToFile();
             }
+
             else if (userChoice == "4")
             {
                 journal.LoadFromFile();
             }
-            else if (userChoice != "5")
+
+            else if (userChoice == "5")
+            {
+                journal.RemoveEntry();
+            }
+
+            else if (userChoice != "6")
             {
                 Console.WriteLine();
-                Console.WriteLine("Only type 1, 2, 3, 4, or 5.");
+                Console.WriteLine("Only type numbers 1 - 6.");
                 Console.WriteLine();
             }
 
         }
-        while (userChoice != "5");
+        while (userChoice != "6");
 
     }
 }
