@@ -1,3 +1,4 @@
+// This is the extra class. It holds the needed scriptures for the Library parameters. The scriptures are chosen at random, then called into the main program where is sends the information to the Library class.
 public class ScriptureLibrary
 {
     private List<Scripture> _scripture = new List<Scripture>()
