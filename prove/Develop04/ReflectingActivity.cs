@@ -1,6 +1,5 @@
 public class ReflectingActivity : Activity
 {
-    private string _name = "Reflecting Activity";
     private List<string> _prompts = new List<string>()
     {
         "Think of a time when you stood up for someone else.",
@@ -21,6 +20,11 @@ public class ReflectingActivity : Activity
         "How can you keep this experience in mind in the future?"
     };
 
+    public ReflectingActivity() : base("Reflecting Activity", "\n\nThis activity will help you reflect on times in your life when you have shown strength and resilience. \nThis will help you recognize the power you have and how you can use it in other aspects of your life.\n\n")
+    {
+
+    }
+
     public void GetRandomPrompt()
     {
         Random random = new Random();
@@ -31,15 +35,9 @@ public class ReflectingActivity : Activity
 
     public void Run()
     {
-        ShowIntro(_name);
-        Console.WriteLine("");
-        Console.WriteLine("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
-        Console.WriteLine("");
-        int pace = GetTime();
-        Console.Clear();
-
-        Console.WriteLine("Get ready...");
-        ShowSpinner();
+        int pace = ShowIntro();
+        
+       
         Console.WriteLine("");
         Console.WriteLine("Consider the following prompt:");
         Console.WriteLine("");
@@ -61,6 +59,6 @@ public class ReflectingActivity : Activity
             Console.WriteLine("");
             count++;
         }
-        ShowEnding(_name, pace);
+        ShowEnding(pace);
     }
 }

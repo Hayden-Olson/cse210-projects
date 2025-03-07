@@ -1,20 +1,16 @@
 public class BreathingActivity : Activity
 {
-    private string _name = "Breathing Activity";
+
+    public BreathingActivity() : base("Breathing Activity","\n\nYou should prepare yourself before we begin.\n\nThis activity will help you relax by walking you through breathing in and out slowly.\n\nClear your mind and focus on your breathing.\n\n")
+    {
+
+    }
 
     public void Run()
     {
-        ShowIntro(_name);
-        Console.WriteLine("You should prepare yourself before we begin.");
-        Console.WriteLine("");
-        Console.WriteLine("This activity will help you relax by walking you through breathing in and out slowly.");
-        Console.WriteLine("Clear your mind and focus on your breathing.");
-        Console.WriteLine("");
-        int pace = GetTime();
-        Console.Clear();
+        int pace = ShowIntro();
         
-        Console.WriteLine("Get ready...");
-        ShowSpinner();
+       
         DateTime _futureTime = DateTime.Now.AddSeconds(pace);
 
         while (DateTime.Now < _futureTime)
@@ -29,6 +25,6 @@ public class BreathingActivity : Activity
             Console.WriteLine("");
         
         }
-        ShowEnding(_name, pace);
+        ShowEnding(pace);
     }
 }

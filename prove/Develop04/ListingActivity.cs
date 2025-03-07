@@ -1,6 +1,9 @@
 public class ListingActivity : Activity
 {
-    private string _name = "Listing Activity";
+    public ListingActivity() : base("Listing Activity", "\n\nThis activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.\n\n")
+    {
+
+    }
 
     private List<string> _prompts = new List<string>()
     {
@@ -23,15 +26,9 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-        ShowIntro(_name);
-        Console.WriteLine("");
-        Console.WriteLine("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
-        Console.WriteLine("");
-        int pace = GetTime();
-        Console.Clear();
+        int pace = ShowIntro();
         
-        Console.WriteLine("Get ready...");
-        ShowSpinner();
+       
         Console.WriteLine("");
         Console.WriteLine("List as many responses as you can to the following prompt:");
         GetRandomPrompt();
@@ -48,6 +45,6 @@ public class ListingActivity : Activity
             count++;
         }
         // This ShowEnding has a special message attached in the final parameter.
-        ShowEnding(_name, pace, $"You listed {count} responses!");
+        ShowEnding(pace, $"You listed {count} responses!");
     }
 }

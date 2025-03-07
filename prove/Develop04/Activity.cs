@@ -4,7 +4,13 @@ using System.Xml.Serialization;
 public class Activity
 {
     protected string _startingMessage;
-    protected int _time;
+    protected string _name;
+
+    protected Activity(string name, string startingMessage)
+    {
+        _name = name;
+        _startingMessage = startingMessage;
+    }
 
     public void ShowSpinner()
     {
@@ -37,10 +43,18 @@ public class Activity
 
     }
 
-    public void ShowIntro(string activityName)
+    public int ShowIntro()
     {
         Console.Clear();
-        Console.WriteLine($"This is the {activityName}!");
+        Console.WriteLine($"This is the {_name}!");
+        Console.WriteLine (_startingMessage);
+
+        int pace = GetTime();
+        Console.Clear();
+
+        Console.WriteLine("Get ready...");
+        ShowSpinner();
+        return pace;
     }
 
     public int GetTime()
@@ -61,12 +75,12 @@ public class Activity
     }
 
     // addon is there in case a third message needs to be displayed at the end. This is used only in the Listing Activity right now, but if another program wanted to convey a special message, then they would put it in the addon spot for the third input parameter.
-    public void ShowEnding(string activityName, int timeSpent, string addon = "")
+    public void ShowEnding(int timeSpent, string addon = "")
     {
         Console.WriteLine("");
         Console.WriteLine("You did a great job!");
         ShowSpinner();
-        Console.WriteLine($"You completed the {activityName} in {timeSpent} seconds!");
+        Console.WriteLine($"You completed the {_name} in {timeSpent} seconds!");
         Console.WriteLine(addon);
         ShowSpinner();
         Console.Clear();
