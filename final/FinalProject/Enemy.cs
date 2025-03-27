@@ -13,25 +13,27 @@ public class Enemy : Character
     {
         if (_health > 0)
         {
-            int random = new Random().Next(1, 5);
-            switch (random)
+            bool paralyzed = IsParalyzed();
+            if (paralyzed == false)
             {
-                case 1:
+                int randomAction = new Random().Next(1, 4);
+                switch (randomAction)
+                {
+                    case 1:
+                        Console.WriteLine($"{_name} attacks!");
+                        int damage = 
+                        break;
 
-                    break;
+                    case 2:
 
-                case 2:
+                        break;
 
-                    break;
+                    case 3:
 
-                case 3:
-
-                    break;
-
-                case 4:
-
-                    break;
+                        break;
+                }
             }
+            return;
         }
     }
 }
