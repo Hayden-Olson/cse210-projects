@@ -12,13 +12,6 @@ public class Character
        _statusCount = 0;
     }
 
-    public string GetName()
-    {
-        Console.WriteLine("What is your name hero? ");
-        string name = Console.ReadLine();
-        return name;
-    }
-
     public Status GetStatus()
     {
         return _status;
@@ -27,6 +20,11 @@ public class Character
     public int GetHealth()
     {
         return _health;
+    }
+
+    public string GetName()
+    {
+        return _name;
     }
 
     // Paralyzed characters will have a 50/50 chance to get a turn.

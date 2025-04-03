@@ -5,8 +5,20 @@ public class Goblin : Enemy
    
     }
 
-    public override void EnemyTurn()
+    public override int EnemyTurn()
     {
-
+        if (_health > 0)
+        {
+            bool paralyzed = IsParalyzed();
+            if (paralyzed == false)
+            {
+                Console.WriteLine($"{_name} attacks!");
+                int attack = _weapon.GetDamage(this);
+                return attack;
+            }
+            return 0;
+        }
+        Console.WriteLine($"The {_name} has been slain!");
+        return 0;
     }
 }

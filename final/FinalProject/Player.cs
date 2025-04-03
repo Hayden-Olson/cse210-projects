@@ -4,9 +4,16 @@ public class Player : Character
 {
     // This is the class that stores the information for the users character.
    
-    public Player(string name, int health, Status status, Weapon weapon) : base(name,150, Status.FINE, new Weapon("sword", 10, 30, 2, 16))
+    public Player() : base(SetName(),150, Status.FINE, new Weapon("sword", 10, 30, 2, 16))
     {
-  
+
+    }
+
+    public static string SetName()
+    {
+        Console.WriteLine("Hello adventurer! What is your name? ");
+        string name = Console.ReadLine();
+        return name;
     }
 
     public void PlayerTurn()

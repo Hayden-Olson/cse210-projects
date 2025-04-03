@@ -5,8 +5,4 @@ public class Demon : Enemy
       
     }
 
-    public override void EnemyTurn()
-    {
-
-    }
 }
