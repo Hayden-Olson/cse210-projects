@@ -10,6 +10,10 @@ public class Character
     public Character(string name, int health, Status status, Weapon weapon)
     {
        _statusCount = 0;
+       _name = name;
+       _health = health;
+       _status = status;
+       _weapon = weapon;
     }
 
     public Status GetStatus()
@@ -26,6 +30,8 @@ public class Character
     {
         return _name;
     }
+
+    public int GetDamage()
 
     // Paralyzed characters will have a 50/50 chance to get a turn.
     public bool IsParalyzed()

@@ -20,6 +20,13 @@ class Program
         Battle battle1 = new Battle(player, goblin);
         battle1.BattleSystem(player, goblin);
 
-        
+        Battle battle2 = new Battle(player, brute);
+        battle2.BattleSystem(player, brute);
+
+        Battle battle3 = new Battle(player, doppleganger);
+        battle3.BattleSystem(player, doppleganger);
+
+        Battle battle4 = new Battle(player, demon);
+        battle4.BattleSystem(player, demon);
     }
 }

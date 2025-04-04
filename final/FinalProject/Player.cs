@@ -11,18 +11,17 @@ public class Player : Character
 
     public static string SetName()
     {
-        Console.WriteLine("Hello adventurer! What is your name? ");
+        Console.Write("Hello adventurer! What is your name? ");
         string name = Console.ReadLine();
         return name;
     }
 
-    public void PlayerTurn()
+    public string PlayerTurn()
     {
+        string action = "";
         bool paralyzed = IsParalyzed();
         if (paralyzed == false)
         {
-            string action = "";
-            string spell = "";
             while (action != "attack" && action != "magic" && action != "heal")
             {
                 Console.WriteLine($"(Attack) (Magic) (Heal)");
@@ -34,30 +33,8 @@ public class Player : Character
                 }
             }
             
-            switch (action)
-            {
-                case "attack":
-                    break;
-
-                case "magic":
-                    while (spell != "fire" && spell != "shock" && spell != "quake")
-                    {
-                        Console.WriteLine("(Fire) (Shock) (Quake)");
-                        Console.WriteLine("Which spell do you cast? ");
-                        spell = Console.ReadLine();
-                        if (spell != "fire" && spell != "shock" && spell != "quake")
-                        {
-                            Console.WriteLine($"That is not a spell {_name}!\n");
-                        }
-                    }
-                    MagicCast(spell);
-                    break;
-
-                case "heal":
-                    Heal();
-                    break;
-            }
+            return action;
         }
-        return;
-    }
+        return action;
+    }   
 }
