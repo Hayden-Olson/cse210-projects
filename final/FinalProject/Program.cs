@@ -14,7 +14,6 @@ class Program
 
         // Player is able to name their hero.
         string playerName = player.GetName();
-
         
         // First scenario plays here.
         Console.WriteLine($"{playerName}! You set off on your quest to vanquish the demon who torments your land!");
@@ -24,6 +23,7 @@ class Program
         Battle battle1 = new Battle(player, goblin);
         battle1.BattleSystem(player, goblin);
   
+        // From here on out the scenarios only play if the player has more than zero health.
         if (player.GetIsAlive())
         {
             Console.WriteLine($"{playerName} makes it through the woods successfully.");
@@ -40,7 +40,7 @@ class Program
             Console.WriteLine($"{playerName} travels up the perilous peaks.");
             Console.WriteLine("You can see the demons lair off in the distance!");
             Console.WriteLine("A Doppleganger appears from the shadows and takes your form.");
-            Console.WriteLine($"DoppleGanger: Show me what you got {playerName}.");
+            Console.WriteLine($"Doppleganger: Show me what you got {playerName}.");
             Console.Write("*******************************************************************************************");
             Console.ReadLine();
             Battle battle3 = new Battle(player, doppleganger);
@@ -70,6 +70,7 @@ class Program
             Console.ReadLine();
         }
         
+        // This plays regardless.
         Console.WriteLine("Game Over");
     }
 }

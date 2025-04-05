@@ -5,6 +5,7 @@ public class Goblin : Enemy
    
     }
 
+    // Goblins can only attack.
     public override void EnemyTurn(Player player)
     {
         string playerName = player.GetName();

@@ -18,38 +18,54 @@ public class Character
        _maxHealth = _health;
     }
 
+    // Player will use this once. Player gives them a name.
+    public static string SetName()
+    {
+        Console.Write("Hello adventurer! What is your name? ");
+        string name = Console.ReadLine();
+        Console.WriteLine("");
+        return name;
+    }
+
+    // Returns the Characters status.
     public Status GetStatus()
     {
         return _status;
     }
 
+    // Used when Enemy or Player cast magic on each other. Sets the other's status to what they chose, resets their status counter, and overwrites the previous status.
     public void SetStatus(Status status)
     {
         _status = status;
         _statusCount = 0;
     }
 
+    // Returns health of Character.
     public int GetHealth()
     {
         return _health;
     }
 
+    // Used in the Heal() method. Prevents over healing.
     private void SetHealth(int health)
     {
         _health = health;
     }
 
+    // Health of Character hit is reduced here.
     public int Damage(int damage)
     {
         _health -= damage;
         return _health;
     }
 
+    // Retrieves the name of the Character.
     public string GetName()
     {
         return _name;
     }
 
+    // Only Player really uses this. Used for damage formula in the Weapon class.
     public Weapon GetWeapon()
     {
         return _weapon;
@@ -102,6 +118,7 @@ public class Character
     {
         int heal = new Random().Next(1,50);
         _health += heal;
+
         if (_health >= _maxHealth)
         {
             SetHealth(_maxHealth);
@@ -110,6 +127,7 @@ public class Character
         return heal;
     }
 
+    // Status of afflicted target is changed. I guess only Player needed this function as it exists for player's chosen inputs, but Enemy also uses this.
     public Status MagicCast(string spell)
     {
         Status status = Status.FINE;

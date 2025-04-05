@@ -5,6 +5,7 @@ public class Brute : Enemy
        
     }
 
+    // Brutes cannot cast magic. This makes them annoying because they have a 50% chance to heal. Magic is recommended to defeat them.
     public override void EnemyTurn(Player player)
     {
         string playerName = player.GetName();

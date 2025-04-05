@@ -9,6 +9,7 @@ public class Enemy : Character
         
     }
 
+    // Enemy's turn is handled in this class. Different from the Player actions because it is randomly decided. Early enemies cannot do certain actions.
     public virtual void EnemyTurn(Player player)
     {
         string playerName = player.GetName();
