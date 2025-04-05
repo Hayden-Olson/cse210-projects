@@ -5,8 +5,9 @@ public class Brute : Enemy
        
     }
 
-    public override int EnemyTurn()
+    public override void EnemyTurn(Player player)
     {
+        string playerName = player.GetName();
         if (_health > 0)
         {
             bool paralyzed = IsParalyzed();
@@ -19,18 +20,18 @@ public class Brute : Enemy
                     case 1:
                         Console.WriteLine($"{_name} attacks!");
                         int attack = _weapon.GetDamage(this);
-                        return attack;
+                        player.Damage(attack);
+                        Console.WriteLine($"{playerName} took {attack} damage!\n");
+                        return;
 
                     // Enemy heals.
                     case 2:
                         Console.WriteLine($"{_name} heals!");
-                        Heal();
-                        return 0;
+                        int heal = Heal();
+                        Console.WriteLine($"{_name} recovered {heal} health!\n");
+                        return;
                 }
             }
-            return 0;
         }
-        Console.WriteLine($"The {_name} has been slain!");
-        return 0;
     }
 }

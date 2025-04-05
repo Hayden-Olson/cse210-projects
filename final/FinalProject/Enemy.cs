@@ -9,8 +9,9 @@ public class Enemy : Character
         
     }
 
-    public virtual int EnemyTurn()
+    public virtual void EnemyTurn(Player player)
     {
+        string playerName = player.GetName();
         if (_health > 0)
         {
             bool paralyzed = IsParalyzed();
@@ -23,37 +24,41 @@ public class Enemy : Character
                     case 1:
                         Console.WriteLine($"{_name} attacks!");
                         int attack = _weapon.GetDamage(this);
-                        return attack;
+                        player.Damage(attack);
+                        Console.WriteLine($"{playerName} took {attack} damage!\n");
+                        return;
 
                     // Enemy heals.
                     case 2:
                         Console.WriteLine($"{_name} heals!");
-                        Heal();
-                        return 0;
+                        int heal = Heal();
+                        Console.WriteLine($"{_name} recovered {heal} health!\n");
+                        return;
 
                     // Enemy casts magic.
                     case 3:
+                        Console.WriteLine($"{_name} casts a spell!");
                         int spell = new Random().Next(1,4);
                         switch (spell)
                         {
                             case 1:
-                                MagicCast("fire");
-                                return 0;
+                                Console.WriteLine($"{_name} casts fire! {playerName} is burned!\n");
+                                player.SetStatus(MagicCast("fire"));
+                                return;
 
                             case 2:
-                                MagicCast("shock");
-                                return 0;
+                                Console.WriteLine($"{_name} casts shock! {playerName} is paralyzed!\n");
+                                player.SetStatus(MagicCast("shock"));
+                                return;
 
                             case 3:
-                                MagicCast("quake");
-                                return 0;
+                                Console.WriteLine($"{_name} casts quake! {playerName} is now weak!\n");
+                                player.SetStatus(MagicCast("quake"));
+                                return;
                         }
-                        return 0;
+                        return;
                 }
             }
-            return 0;
         }
-        Console.WriteLine($"The {_name} has been slain!");
-        return 0;
     }
 }

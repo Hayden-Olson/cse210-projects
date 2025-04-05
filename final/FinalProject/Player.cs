@@ -13,6 +13,7 @@ public class Player : Character
     {
         Console.Write("Hello adventurer! What is your name? ");
         string name = Console.ReadLine();
+        Console.WriteLine("");
         return name;
     }
 
@@ -24,12 +25,13 @@ public class Player : Character
         {
             while (action != "attack" && action != "magic" && action != "heal")
             {
-                Console.WriteLine($"(Attack) (Magic) (Heal)");
-                Console.WriteLine("What will you do? ");
+                Console.WriteLine("(Attack) (Magic) (Heal)\n");
+                Console.Write("What will you do? ");
                 action = Console.ReadLine();
+                Console.WriteLine("");
                 if (action != "attack" && action != "magic" && action != "heal")
                 {
-                    Console.WriteLine($"{_name}! Don't waste your move! Attack, use magic, or heal!");
+                    Console.WriteLine($"{_name}! Don't waste your move! Attack, use magic, or heal!\n");
                 }
             }
             
