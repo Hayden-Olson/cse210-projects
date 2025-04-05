@@ -3,8 +3,9 @@ using System;
 public class Player : Character
 {
     // This is the class that stores the information for the users character.
-   
-    public Player() : base(SetName(),150, Status.FINE, new Weapon("sword", 10, 30, 2, 16))
+    
+    private bool _alive = true;
+    public Player() : base(SetName(),150, Status.FINE, new Weapon("sword", 10, 30, 2, 16), 0)
     {
 
     }
@@ -15,6 +16,16 @@ public class Player : Character
         string name = Console.ReadLine();
         Console.WriteLine("");
         return name;
+    }
+
+    public void SetIsAlive(bool alive)
+    {
+        _alive = alive;
+    }
+
+    public bool GetIsAlive()
+    {
+        return _alive;
     }
 
     public string PlayerTurn()

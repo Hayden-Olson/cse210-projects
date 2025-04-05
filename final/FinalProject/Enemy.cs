@@ -4,7 +4,7 @@ public class Enemy : Character
 {
     // This class will store all the information for the enemies in the game.
 
-    public Enemy(string name, int health, Status status, Weapon weapon) : base(name, health, status, weapon)
+    public Enemy(string name, int health, Status status, Weapon weapon, int count) : base(name, health, status, weapon, count)
     {
         
     }

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Diagnostics;
 
 public class Battle
@@ -67,16 +68,22 @@ public class Battle
 
             Console.Write("*******************************************************************************************");
             Console.ReadLine();
+            Console.Clear();
         }
-        if (player.GetHealth() == 0)
+        if (player.GetHealth() <= 0)
         {
             Console.WriteLine($"{playerName} has fallen in battle.");
             Console.WriteLine("Your journey ends here.");
+            Console.Write("*******************************************************************************************");
+            Console.ReadLine();
+            player.SetIsAlive(false);
         }
         else
         {
             Console.WriteLine($"The {enemyName} has been slain!\n");
             Console.WriteLine("You won!");
+            Console.Write("*******************************************************************************************");
+            Console.ReadLine();
         }
     }
 }

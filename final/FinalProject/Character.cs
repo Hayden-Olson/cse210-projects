@@ -8,9 +8,9 @@ public class Character
     protected int _statusCount;
     protected int _maxHealth;
 
-    public Character(string name, int health, Status status, Weapon weapon)
+    public Character(string name, int health, Status status, Weapon weapon, int statusCount)
     {
-       _statusCount = 0;
+       _statusCount = statusCount;
        _name = name;
        _health = health;
        _status = status;
@@ -89,7 +89,7 @@ public class Character
             _statusCount++;
         }
 
-        else if (_statusCount > 3 && _status != Status.FINE)
+        else if (_statusCount >= 3 && _status != Status.FINE)
         {
             _status = Status.FINE;
             _statusCount = 0;
